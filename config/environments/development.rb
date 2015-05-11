@@ -13,8 +13,24 @@ Depot::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.mailgun.com",
+    port: 587,
+    domain: "Domain",
+    authentication: "plain",
+    user_name: "postmaster@sandbox1d0b5e3419a049d7a10193972f5edf05.mailgun.org",
+    password: "5459a641ba4d30ff89f3009fd298e3ad",
+    openssl_verify_mode: 'none', # opportunistic encoding, bad for production
+    enable_starttls_auto: true
+  }
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = { from: 'no-reply@example.com' }
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
