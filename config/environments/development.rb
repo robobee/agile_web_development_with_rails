@@ -17,14 +17,14 @@ Depot::Application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.mailgun.com",
-    port: 587,
-    domain: "Domain",
-    authentication: "plain",
-    user_name: "postmaster@sandbox1d0b5e3419a049d7a10193972f5edf05.mailgun.org",
-    password: "5459a641ba4d30ff89f3009fd298e3ad",
-    openssl_verify_mode: 'none', # opportunistic encoding, bad for production
-    enable_starttls_auto: true
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain => "Domain",
+    :authentication => "plain",
+    :openssl_verify_mode => 'none', # opportunistic encoding, bad for production
+    :enable_starttls_auto => true
   }
 
   config.action_mailer.perform_deliveries = true
