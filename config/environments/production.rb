@@ -74,6 +74,7 @@ Depot::Application.configure do
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
     :domain         => 'sleepy-cliffs-4477.herokuapp.com',
     :authentication => "plain",
+    :openssl_verify_mode => 'none',
     :enable_starttls_auto => true
   }
 
