@@ -18,3 +18,4 @@
 *.jpeg
 *.png
 *.gif
+.env
