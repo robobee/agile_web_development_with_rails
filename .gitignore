@@ -14,8 +14,4 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-*.jpg
-*.jpeg
-*.png
-*.gif
 .env
